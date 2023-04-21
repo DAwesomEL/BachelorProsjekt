@@ -4,3 +4,11 @@ FEM Analasys/Simuleringer/Hele armen/*
 *.CWR
 *.MFC
 *.SL4
+*.BDF
+*.BMC
+*.CWR
+*.ind
+*.jal
+*.lnz
+*.lup
+*.sin
