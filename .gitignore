@@ -12,3 +12,5 @@ FEM Analasys/Simuleringer/Hele armen/*
 *.lnz
 *.lup
 *.sin
+*.LOG
+*.sle

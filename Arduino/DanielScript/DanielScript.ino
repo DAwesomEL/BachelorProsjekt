@@ -1,3 +1,5 @@
+#include <Wire.h>
+
 int PWM1 = 6;
 int PWM2 = 5;
 int En1 = 4;
