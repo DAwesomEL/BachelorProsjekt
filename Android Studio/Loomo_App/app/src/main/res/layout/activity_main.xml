@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="541dp"
+            android:layout_height="749dp"
+            android:background="#C400BCD4"
+            android:backgroundTint="#E400BCD4"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/Forward"
+                android:layout_width="211dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#44444E"
+                android:text="@string/forward" />
+
+
+            <Button
+                android:id="@+id/Backward"
+                android:layout_width="211dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#44444E"
+                android:text="@string/backward"
+                app:layout_constraintBottom_toTopOf="@+id/Forward"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/Go"
+                android:layout_width="211dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#44444E"
+                android:text="@string/go"
+                app:layout_constraintBottom_toTopOf="@+id/Forward"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/Stop"
+                android:layout_width="211dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#44444E"
+                android:text="@string/stop"
+                app:layout_constraintBottom_toTopOf="@+id/Forward"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:padding="16dip"
+                android:scrollbars="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/Forward"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+
+    <!--
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <com.infintro.loomocart.AutoFitDrawableView
+            android:id="@+id/drawableView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </com.infintro.loomocart.AutoFitDrawableView>
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="#C400BCD4"
+            android:backgroundTint="#E400BCD4"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/followButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#44444E"
+                android:text="Follow" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <Button
+                android:id="@+id/homeButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="#44444E"
+                android:text="Home" />
+
+            <Button
+                android:id="@+id/brd1Button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="#44444E"
+                android:text="Brdroom 1" />
+
+            <Button
+                android:id="@+id/brd2Button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="#44444E"
+                android:text="Brdroom 2" />
+
+            <Button
+                android:id="@+id/brd3Button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="#44444E"
+                android:text="Brdroom 3" />
+
+            <Button
+                android:id="@+id/lobbyButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="#44444E"
+                android:text="Lobby" />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+-->
