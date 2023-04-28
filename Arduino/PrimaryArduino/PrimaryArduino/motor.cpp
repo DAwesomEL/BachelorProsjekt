@@ -1,61 +1,62 @@
 #include "motor.h"
 #include "arduino.h"
-Motor::Motor()
+Motor::Motor(int cwNew, int ccwNew, float KpNew, float KiNew, float KdNew)
 {
+	cw = cwNew;
+	ccw = ccwNew;
+	Kp = KpNew;
+	Ki = KiNew;
+	Kd = KdNew;
+
 	summedError = 0;
 	lastTime = 0;
 	lastAng = 0;
+	dir = true;
 }
 
 
-int Motor::assignedPins(int cw, int ccw)
+int Motor::assignedPins(int cwNew, int ccwNew)
 {
-	this->cw = cw;
-	this->ccw = ccw;
-	pinMode(cw, INPUT);
-	pinMode(ccw, INPUT);
+	cw = cwNew;
+	ccw = ccwNew;
+	pinMode(cw, OUTPUT);
+	pinMode(ccw, OUTPUT);
 	return 0;
 }
 
-int Motor::PIDvalues(int Kp, int Ki, int Kd)
+int Motor::PIDvalues(float KpNew, float KiNew, float KdNew)
 {
-	this->Kp = Kp;
-	this->Ki = Ki;
-	this->Kd = Kd;
+	Kp = KpNew;
+	Ki = KiNew;
+	Kd = KdNew;
 	return 0;
 }
 
 
-int Motor::PID(double ang, double desAng)
+int Motor::PID(double ang, double desAng, long int time)
 {
-	double P;
-	double I;
-	double D;
-	long int time = millis();
+	float P = 0;
+	float I = 0;
+	float D = 0;
 
+	float error = (desAng - ang);
+	float absError = abs(error);
 	// Proportional
-	P = Kp * (desAng - ang);
+	P = Kp * absError;
+	//PWM
+	PWM = 100;// (int)round(abs(P + I + D));
 
-	// Integrator
-	summedError += (desAng - ang);
-	I = abs(summedError);
-	if (summedError > 0) {
-		dir = 1;
+
+	if (error < 0) {
+		dir = false;
 	}
 	else {
-		dir = 0;
+		dir = true;
 	}
-
-	// Derivator
-	D = Kd * (ang - lastAng) / (time - lastTime);
-
-	//PWM
-	PWM = P + I + D;
 
 	//remember last values
 	lastAng = ang;
 	lastTime = time;
-
 	return 0;
 }
 
@@ -66,8 +67,8 @@ int Motor::drive()
 		analogWrite(ccw, 0);
 	}
 	else {
-		analogWrite(ccw, PWM);
 		analogWrite(cw, 0);
+		analogWrite(ccw, PWM);
 	}
 
 	return 0;

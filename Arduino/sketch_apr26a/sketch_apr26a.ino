@@ -42,6 +42,7 @@ void setup()
 
 void loop()
 {    
+    //Serial.print("Helloooo Are you there?");
     ReadRawAngle(); //ask the value from the sensor
     correctAngle(); //tare the value
    

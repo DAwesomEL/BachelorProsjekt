@@ -6,7 +6,12 @@ public:
 	void I2CComm();
 	int getID(bool printMe);
 	void I2CScan();
-private:
+
+	float readAngle();
+
+	void checkMagnetPresence();
+	float trueAngle;
+	int magnetStatus;
 	int slaveAdress;
 };
 

@@ -12,13 +12,8 @@
 #include "I2C.h"
 // #include "sensor.h"
 
-#define SLAVE_ADDRESS_1 36 // I2C address of sensor #1
-#define SLAVE_ADDRESS_2 9 // I2C address of sensor #2
 
-
-Motor* motorRS = NULL;
-Motor* motorRT = NULL;
-Motor* motorRE = NULL;
+Motor motorRS(2, 3, 2, 0, 0);
 
 
 int numberOfI2CDevices = 0;
@@ -37,34 +32,31 @@ int count = 0;
 void setup() {
 	time = 0;
 	startTime = millis();
-	Serial.begin(19200);
-	Serial1.begin(9600);
+
+	Serial.begin(115200);
+	Serial1.begin(9600);	
 	Serial.flush();
 	Serial1.flush();
 	Wire.begin();
+	Wire.setClock(800000L); //fast clock
+	
+	/*for (int i = 0; 11; i++) {
+		pinMode(i+1, OUTPUT);
+	}*/
+	
+
+	Serial.println("Starting..");
+	firstRun = false;
+	I2CSetup();
 }
 
-void motorSetup() {
-	motorRS->assignedPins(5, 6);
-	motorRS->PIDvalues(5, 0.1, 3);
-
-	motorRT->assignedPins(7, 8);
-	motorRT->PIDvalues(2, 1, 0);
-
-	motorRE->assignedPins(9, 10);
-	motorRT->PIDvalues(1, 0, 0);
-}
 
 void I2CSetup() 
 {
+	delay(100);
 	magRElbow.getID(true);
 	magRElbow.I2CScan();
-	magRElbow.I2CComm();
-	/*I2CUnit magRSholder(37, numberOfI2CDevices);
-	I2CUnit imuRFemurInner(38, numberOfI2CDevices);
-	I2CUnit imuRFemurOuter(39, numberOfI2CDevices);
-	I2CUnit SVEIIIIIIIIIIIN(40, numberOfI2CDevices);
-	*/
+	magRElbow.checkMagnetPresence();
 	// automatic check if there are the same amount of sensors that are connected and that are defined.
 	int i2cDevices = I2CScanGeneral();
 	if (i2cDevices < numberOfI2CDevices){
@@ -89,15 +81,17 @@ void I2CSetup()
 // the loop function runs over and over again until power down or reset
 void loop() 
 {
-	if (firstRun) {
-		firstRun = false;
-		motorSetup();
-	}
-	I2CSetup();
 	time = millis();
+	if (time % 100 == 0) {
+		Serial.write("");
+		magRElbow.readAngle();
+		motorRS.PID(magRElbow.trueAngle, 200, time);
+		motorRS.drive();
+	}
 
-	if (time %1000 == 0) { // 134 av 600 på 6007 ms //60 av 60 på 5989 ms // 118 av 120 på 5989 ms // 1890 av 2000 på 95989 ms // 960 av 960 på 95989
-		// uten noen annen stress på systemet. Ikke send serial mer enn 10 ganger i sekundet.
-		//Serial.println("Du heter svein?");
+	if (time % 1000 == 0) { // 134 av 600 pï¿½ 6007 ms //60 av 60 pï¿½ 5989 ms // 118 av 120 pï¿½ 5989 ms // 1890 av 2000 pï¿½ 95989 ms // 960 av 960 pï¿½ 95989
+		// uten noen annen stress pï¿½ systemet. Ikke send serial mer enn 10 ganger i sekundet.
+		analogWrite(3, 200);
 	}
 }
+

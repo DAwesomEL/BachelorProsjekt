@@ -2,25 +2,24 @@
 class Motor
 { 
 public:
-	Motor();
+	Motor(int cwNew, int ccwNew, float KpNew, float KiNew, float KdNew);
 	~Motor() = default;
 
-	int assignedPins(int cw, int ccw);
-	int PIDvalues(int Kp, int Ki, int Kd);
+	int assignedPins(int cwNew, int ccwNew);
+	int PIDvalues(float KpNew, float KiNew, float KdNew);
 
-	int PID(double ang, double desAng);
+	int PID(double ang, double desAng, long int time);
 
 	int drive();
 
-	int Kp;
-private:
 	int cw;
 	int ccw;
-	int Ki;
-	int Kd;
+	float Kp;
+	float Ki;
+	float Kd;
 	int PWM;
 	bool dir;
-	double summedError;
+	float summedError;
 	long int lastTime;
-	double lastAng;
+	float lastAng;
 };
