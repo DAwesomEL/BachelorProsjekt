@@ -74,6 +74,7 @@
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="Shared">
     <Import Project="..\Libraries\Wire\1.0\Wire\Wire-1.0.vcxitems" Label="Shared" />
+    <Import Project="..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\invensense-imu-main-6.0.3.vcxitems" Label="Shared" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
@@ -82,7 +83,7 @@
     <TargetOSAndVersion>Arduino</TargetOSAndVersion>
   </PropertyGroup>
   <ItemGroup>
-    <ClCompile Include="I2C.cpp" />
+    <ClCompile Include="magI2C.cpp" />
     <ClCompile Include="motor.cpp" />
     <ClCompile Include="PrimaryArduino.ino">
       <FileType>CppCode</FileType>
@@ -99,7 +100,7 @@
     <ProjectCapability Include="VisualMicro" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="I2C.h" />
+    <ClInclude Include="magI2C.h" />
     <ClInclude Include="motor.h" />
     <ClInclude Include="sensor.h" />
     <ClInclude Include="serial.h" />
@@ -112,14 +113,14 @@
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\mega;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src\utility</IncludePath>
+    <IncludePath>$(ProjectDir)..\PrimaryArduino;$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\..\..\..\..\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\mega;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src\utility;$(ProjectDir)..\..\..\..\Arduino\libraries\ESP32-Arduino-MPU9250-master;$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src</IncludePath>
     <RemoteCCompileToolExe>$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</RemoteCCompileToolExe>
     <RemoteCppCompileToolExe>$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</RemoteCppCompileToolExe>
     <ValidateArchitecture>false</ValidateArchitecture>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\mega;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src\utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\PrimaryArduino;$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\..\..\..\..\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\mega;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src\utility;$(ProjectDir)..\..\..\..\Arduino\libraries\ESP32-Arduino-MPU9250-master;$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <GccToolChain>$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</GccToolChain>
       <CppLanguageStandard>gnu++11</CppLanguageStandard>
       <CLanguageStandard>gnu11</CLanguageStandard>

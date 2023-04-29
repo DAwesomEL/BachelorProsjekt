@@ -30,7 +30,7 @@
     <ClCompile Include="serial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="I2C.cpp">
+    <ClCompile Include="magI2C.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClInclude Include="serial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="I2C.h">
+    <ClInclude Include="magI2C.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

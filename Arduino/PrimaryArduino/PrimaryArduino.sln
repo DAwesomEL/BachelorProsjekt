@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimaryArduino", "PrimaryAr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wire-1.0", "Libraries\Wire\1.0\Wire\Wire-1.0.vcxitems", "{D750B1EB-00A9-4479-BA6B-82B0E89C8F95}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "invensense-imu-main-6.0.3", "Libraries\invensense-imu-main\6.0.3\invensense-imu-main\invensense-imu-main-6.0.3.vcxitems", "{E8ED4DBD-6D55-4788-ABC8-3014CF0386F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -51,7 +53,9 @@ Global
 		SolutionGuid = {641A7255-8D93-4D4D-9A26-02A35C8B884C}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Libraries\invensense-imu-main\6.0.3\invensense-imu-main\invensense-imu-main-6.0.3.vcxitems*{2442ef4b-c807-41bc-ae0e-f6297c9ae47e}*SharedItemsImports = 4
 		Libraries\Wire\1.0\Wire\Wire-1.0.vcxitems*{2442ef4b-c807-41bc-ae0e-f6297c9ae47e}*SharedItemsImports = 4
 		Libraries\Wire\1.0\Wire\Wire-1.0.vcxitems*{d750b1eb-00a9-4479-ba6b-82b0e89c8f95}*SharedItemsImports = 9
+		Libraries\invensense-imu-main\6.0.3\invensense-imu-main\invensense-imu-main-6.0.3.vcxitems*{e8ed4dbd-6d55-4788-abc8-3014cf0386f2}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

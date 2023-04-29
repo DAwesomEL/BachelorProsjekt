@@ -39,12 +39,24 @@ int Motor::PID(double ang, double desAng, long int time)
 	float I = 0;
 	float D = 0;
 
-	float error = (desAng - ang);
+	float error = desAng - ang;
+
+
+	// At 360 degrees the angle swaps around, if the current angle is at 358 degrees and the desired angle is at 1, 
+	// they are in reality just 3 degrees apart, but the error would be 357
+	if (error > 180)
+		error = error - 360;
+	else if (error < -180)
+		error = error + 360;
+
 	float absError = abs(error);
 	// Proportional
 	P = Kp * absError;
 	//PWM
-	PWM = 100;// (int)round(abs(P + I + D));
+	PWM = (int)round(abs(P + I + D));
+	;
+	if (PWM >= 255)
+		PWM = 255;
 
 
 	if (error < 0) {
