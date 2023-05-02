@@ -34,7 +34,7 @@ void compFilter::getAngles(bfs::Mpu9250 imu, float dt)
 		pitch = atan(-accelX_filt / sqrt(pow(accelY_filt, 2) + pow(accelZ_filt, 2))) * RAD_TO_DEG;
 
 		// Calculate yaw angle from gyroscope data
-		yaw = gyroZ_filt * dt
+		yaw = gyroZ_filt * dt;
 	}
 }
 

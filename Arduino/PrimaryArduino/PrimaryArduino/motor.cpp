@@ -72,15 +72,22 @@ int Motor::PID(double ang, double desAng, long int time)
 	return 0;
 }
 
-int Motor::drive()
+int Motor::drive(bool doDrive)
 {
-	if (dir) {
-		analogWrite(cw, PWM);
-		analogWrite(ccw, 0);
+	if (doDrive)
+	{
+		if (dir) {
+			analogWrite(cw, PWM);
+			analogWrite(ccw, 0);
+		}
+		else {
+			analogWrite(cw, 0);
+			analogWrite(ccw, PWM);
+		}
 	}
 	else {
 		analogWrite(cw, 0);
-		analogWrite(ccw, PWM);
+		analogWrite(ccw, 0);
 	}
 
 	return 0;

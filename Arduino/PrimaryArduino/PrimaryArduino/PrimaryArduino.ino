@@ -18,21 +18,20 @@
 int numberOfI2CDevices = 0;
 
 
-Motor motorRS(2, 3, 2, 0, 0);
+Motor motorRS(2, 3, 5, 0, 0);
 Motor motorRT(4, 5, 2, 0, 0);
 Motor motorRE(6, 7, 2, 0, 0);
 
 bfs::Mpu9250 mpuRUpper(&Wire, bfs::Mpu9250::I2C_ADDR_PRIM);
 bfs::Mpu9250 mpuRLower(&Wire, bfs::Mpu9250::I2C_ADDR_SEC);
-MagI2CUnit magRE(0x36, numberOfI2CDevices);
-MagI2CUnit magRS(0x71, numberOfI2CDevices);
+MagI2CUnit magRS(0x36, numberOfI2CDevices);
+MagI2CUnit magRE(0x71, numberOfI2CDevices);
 
 // Time variables
 long int time = 0;
 long int startTime = 0;
 float dt;
 long int lastTime = 0;
-bool firstRun = true;
 
 // Test variables, delete if you don't remember what it was for, delete them and all code that gets errors because of it
 
@@ -54,13 +53,7 @@ void setup() {
 	mpuRLower.Begin();
 	numberOfI2CDevices++;
 	
-	/*for (int i = 0; 11; i++) {
-		pinMode(i+1, OUTPUT);
-	}*/
-	
-
 	Serial.println("Starting..");
-	firstRun = false;
 	I2CSetup();
 }
 
@@ -70,24 +63,24 @@ void setup() {
 void loop() 
 {
 	time = millis();
-	dt 
+	dt = time - lastTime;
+	lastTime = time;
 	if (time % 100 == 0) {
 		//Serial.write("");
-		magRE.readAngle();
-		motorRS.PID(magRE.trueAngle, 200, time);
-		motorRS.drive();
+		magRS.readAngle();
+		motorRS.PID(magRS.trueAngle, 200, time);
+		motorRS.drive(magRS.checkMagnetPresence(true));
 	}
 
 	if (time % 1000 == 0) { // 134 av 600 p� 6007 ms //60 av 60 p� 5989 ms // 118 av 120 p� 5989 ms // 1890 av 2000 p� 95989 ms // 960 av 960 p� 95989
 		// uten noen annen stress p� systemet. Ikke send serial mer enn 10 ganger i sekundet.
 
-		MPU(mpuRUpper);
 		Serial.print("PWM: ");
 		Serial.println(motorRS.PWM);
 		Serial.print("Kp value: ");
 		Serial.println(motorRS.Kp);
 		Serial.print("True Angle: ");
-		Serial.println(magRE.trueAngle);
+		Serial.println(magRS.trueAngle);
 	}
 }
 

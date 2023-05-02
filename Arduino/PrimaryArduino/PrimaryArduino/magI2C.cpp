@@ -124,8 +124,12 @@ void MagI2CUnit::checkMagnetPresence()
 		if (lastMagnetStatus != magnetStatus) {
 			Serial.print("Magnet status: ");
 			Serial.println(magnetStatus, BIN); //print it in binary so you can compare it to the table (fig 21)   
-		} 
+		}
+		else {
+			Serial.print("");
+		}
 		lastMagnetStatus = magnetStatus;
+		delay(10);
 	}
 
 	//Status register output: 0 0 MD ML MH 0 0 0  
@@ -136,6 +140,30 @@ void MagI2CUnit::checkMagnetPresence()
 	Serial.println("Magnet found!");
 	Serial.println("");
 	delay(1000);
+}
+
+
+
+bool MagI2CUnit::checkMagnetPresence(bool onlyOnce)
+{
+		magnetStatus = 0; //reset reading
+
+		Wire.beginTransmission(0x36); //connect to the sensor
+		Wire.write(0x0B); //figure 21 - register map: Status: MD ML MH
+		Wire.endTransmission(); //end transmission
+		Wire.requestFrom(0x36, 1); //request from the sensor
+
+		while (Wire.available() == 0); //wait until it becomes available 
+		magnetStatus = Wire.read(); //Reading the data after the request
+	//Status register output: 0 0 MD ML MH 0 0 0  
+	//MH: Too strong magnet - 100111 - DEC: 39 
+	//ML: Too weak magnet - 10111 - DEC: 23     
+	//MD: OK magnet - 110111 - DEC: 55
+
+		if (magnetStatus == 55)
+			return true;
+		else
+			return false;
 }
 
 

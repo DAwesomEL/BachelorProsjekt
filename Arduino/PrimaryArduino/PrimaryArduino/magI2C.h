@@ -10,6 +10,7 @@ public:
 	float readAngle();
 
 	void checkMagnetPresence();
+	bool checkMagnetPresence(bool onlyOnce);
 	float trueAngle;
 	int magnetStatus;
 	int slaveAdress;

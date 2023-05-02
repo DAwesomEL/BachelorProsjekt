@@ -10,7 +10,7 @@ public:
 
 	int PID(double ang, double desAng, long int time);
 
-	int drive();
+	int drive(bool doDrive);
 
 	int cw;
 	int ccw;
