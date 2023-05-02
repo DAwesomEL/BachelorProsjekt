@@ -33,6 +33,9 @@
     <ClCompile Include="magI2C.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="compFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.PrimaryArduino.vsarduino.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="magI2C.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="compFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

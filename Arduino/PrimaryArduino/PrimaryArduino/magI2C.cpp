@@ -24,7 +24,7 @@ void MagI2CUnit::I2CComm()
 	Serial.print("The test sensor's value is: ");
 	Serial.println(data);
 }
-void MagI2CUnit::I2CScan()
+int MagI2CUnit::I2CScan()
 	{
 	byte err, adr;       /*variable error is defined with address of I2C*/
 	adr = slaveAdress;
@@ -38,15 +38,21 @@ void MagI2CUnit::I2CScan()
 			Serial.print("0");
 		Serial.print(adr, HEX);
 		Serial.println(" is indeed there.");
+		return 0;
 	}
 	else if (err == 4)
 	{
-		Serial.print("Unknown error at address 0x");
+		Serial.print("Unknown error at address 0x ");
 		if (adr < 16)
 			Serial.print("0");
-		Serial.println(adr, HEX);
+		Serial.print(adr, HEX);
+		Serial.println(" but the program can see something at this address");
+		return 0;
 	}
-	else { Serial.println("I2CScan failed I think"); }
+	else { 
+		Serial.println("I2CScan failed, most likely due to the sensor not being connected or having wrong adress");
+		return 1;
+	}
 }
 
 int MagI2CUnit::getID(bool printMe)
@@ -128,6 +134,7 @@ void MagI2CUnit::checkMagnetPresence()
 	//MD: OK magnet - 110111 - DEC: 55
 
 	Serial.println("Magnet found!");
+	Serial.println("");
 	delay(1000);
 }
 

@@ -5,7 +5,7 @@ public:
 	MagI2CUnit(int ID, int &deviceCounter);
 	void I2CComm();
 	int getID(bool printMe);
-	void I2CScan();
+	int I2CScan();
 
 	float readAngle();
 

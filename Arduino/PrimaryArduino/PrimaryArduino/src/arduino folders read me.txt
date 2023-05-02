@@ -11,4 +11,5 @@
 * Source code in the project folder will always be compiled regardless of inclusion in the project. This functionality can be disabled in Global Options.
 
 
-
+To use this project you will need "Wire" and "invensense imu" libraries. Also you need "Arduino AVR boards" since we use the Arduino mega in this project.
+You will connect the Primary arduino to the loomo and the secondary to RX1 and TX1 so not to interfere. Connect RX of one to TX on the other. 

@@ -83,6 +83,7 @@
     <TargetOSAndVersion>Arduino</TargetOSAndVersion>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="compFilter.cpp" />
     <ClCompile Include="magI2C.cpp" />
     <ClCompile Include="motor.cpp" />
     <ClCompile Include="PrimaryArduino.ino">
@@ -100,6 +101,7 @@
     <ProjectCapability Include="VisualMicro" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="compFilter.h" />
     <ClInclude Include="magI2C.h" />
     <ClInclude Include="motor.h" />
     <ClInclude Include="sensor.h" />
@@ -113,20 +115,20 @@
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\..\..\..\..\..\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\mega;$(ProjectDir)..\..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src\utility;$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src</IncludePath>
-    <RemoteCCompileToolExe>$(ProjectDir)..\..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</RemoteCCompileToolExe>
-    <RemoteCppCompileToolExe>$(ProjectDir)..\..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</RemoteCppCompileToolExe>
+    <IncludePath>$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\..\..\..\..\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\mega;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src\utility;$(ProjectDir)..\..\..\..\Arduino\libraries\ESP32-Arduino-MPU9250-master;$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src</IncludePath>
+    <RemoteCCompileToolExe>$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</RemoteCCompileToolExe>
+    <RemoteCppCompileToolExe>$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</RemoteCppCompileToolExe>
     <ValidateArchitecture>false</ValidateArchitecture>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\..\..\..\..\..\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\mega;$(ProjectDir)..\..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src\utility;$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <GccToolChain>$(ProjectDir)..\..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</GccToolChain>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\..\..\..\..\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\mega;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src;$(ProjectDir)..\Libraries\Wire\1.0\Wire\src\utility;$(ProjectDir)..\..\..\..\Arduino\libraries\ESP32-Arduino-MPU9250-master;$(ProjectDir)..\Libraries\invensense-imu-main\6.0.3\invensense-imu-main\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <GccToolChain>$(ProjectDir)..\..\..\..\..\..\..\\Users\\dngmo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</GccToolChain>
       <CppLanguageStandard>gnu++11</CppLanguageStandard>
       <CLanguageStandard>gnu11</CLanguageStandard>
       <CAdditionalWarning />
       <CppAdditionalWarning />
-      <ForcedIncludeFiles>$(ProjectDir)..\..\..\..\..\..\..\..\program files\microsoft visual studio\2022\community\common7\ide\extensions\lurodfxk.kwv\Micro Platforms\default\vm-intelli-pre.h;$(ProjectDir)..\..\..\..\..\..\AppData\Local\Temp\VMBuilds\PrimaryArduino\mega_atmega2560\Debug\.vmintelli\90edae5f91c3808896a8a72c5bfd74a0\vm-intelli-gcc-defines.h;$(ProjectDir)..\..\..\..\..\..\..\..\program files\microsoft visual studio\2022\community\common7\ide\extensions\lurodfxk.kwv\Micro Platforms\default\vm-intelli-post.h;$(ProjectDir)__vm\.PrimaryArduino.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles>$(ProjectDir)..\..\..\..\..\..\..\program files\microsoft visual studio\2022\community\common7\ide\extensions\lurodfxk.kwv\Micro Platforms\default\vm-intelli-pre.h;$(ProjectDir)..\..\..\..\..\AppData\Local\Temp\VMBuilds\PrimaryArduino\mega_atmega2560\Debug\.vmintelli\3f4acf9bfdef8e2ada8e4abf4037d987\vm-intelli-gcc-defines.h;$(ProjectDir)..\..\..\..\..\..\..\program files\microsoft visual studio\2022\community\common7\ide\extensions\lurodfxk.kwv\Micro Platforms\default\vm-intelli-post.h;$(ProjectDir)__vm\.PrimaryArduino.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <UndefineAllPreprocessorDefinitions>true</UndefineAllPreprocessorDefinitions>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>_VMICRO_INTELLISENSE;__AVR_atmega2560__;__AVR_ATmega2560__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=108010;ARDUINO_AVR_MEGA2560;ARDUINO_ARCH_AVR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
