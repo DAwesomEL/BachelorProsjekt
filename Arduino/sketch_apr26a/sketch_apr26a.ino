@@ -34,7 +34,7 @@ void setup()
 
   ReadRawAngle(); //make a reading so the degAngle gets updated
   startAngle = degAngle; //update startAngle with degAngle - for taring
-
+analogWrite(uint8_t pin, int val)
 
 
   
@@ -42,6 +42,7 @@ void setup()
 
 void loop()
 {    
+    
     ReadRawAngle(); //ask the value from the sensor
     correctAngle(); //tare the value
    
