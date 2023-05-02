@@ -34,7 +34,7 @@ void setup()
 
   ReadRawAngle(); //make a reading so the degAngle gets updated
   startAngle = degAngle; //update startAngle with degAngle - for taring
-analogWrite(uint8_t pin, int val)
+
 
 
   
@@ -42,7 +42,7 @@ analogWrite(uint8_t pin, int val)
 
 void loop()
 {    
-    
+    //Serial.print("Helloooo Are you there?");
     ReadRawAngle(); //ask the value from the sensor
     correctAngle(); //tare the value
    

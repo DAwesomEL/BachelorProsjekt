@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SecondaryArduino", "SecondaryArduino\SecondaryArduino.vcxproj", "{8A605E23-EF20-4FDC-8804-38E4AB6B750F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wire-1.0", "Libraries\Wire\1.0\Wire\Wire-1.0.vcxitems", "{F7B3E69B-129F-4C60-B602-7E1338680519}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|ARM.Build.0 = Debug|ARM
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|ARM.Deploy.0 = Debug|ARM
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|ARM64.Build.0 = Debug|ARM64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|x64.ActiveCfg = Debug|x64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|x64.Build.0 = Debug|x64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|x64.Deploy.0 = Debug|x64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|x86.ActiveCfg = Debug|x86
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|x86.Build.0 = Debug|x86
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Debug|x86.Deploy.0 = Debug|x86
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|ARM.ActiveCfg = Release|ARM
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|ARM.Build.0 = Release|ARM
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|ARM.Deploy.0 = Release|ARM
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|ARM64.ActiveCfg = Release|ARM64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|ARM64.Build.0 = Release|ARM64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|ARM64.Deploy.0 = Release|ARM64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|x64.ActiveCfg = Release|x64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|x64.Build.0 = Release|x64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|x64.Deploy.0 = Release|x64
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|x86.ActiveCfg = Release|x86
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|x86.Build.0 = Release|x86
+		{8A605E23-EF20-4FDC-8804-38E4AB6B750F}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {512F1FA0-C155-49D4-890A-EAB615CDE4F1}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Libraries\Wire\1.0\Wire\Wire-1.0.vcxitems*{8a605e23-ef20-4fdc-8804-38e4ab6b750f}*SharedItemsImports = 4
+		Libraries\Wire\1.0\Wire\Wire-1.0.vcxitems*{f7b3e69b-129f-4c60-b602-7e1338680519}*SharedItemsImports = 9
+	EndGlobalSection
+EndGlobal
