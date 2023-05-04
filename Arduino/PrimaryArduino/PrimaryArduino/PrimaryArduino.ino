@@ -18,6 +18,7 @@
 int numberOfI2CDevices = 0;
 
 
+
 Motor motorRS(2, 3, 5, 0, 0);
 Motor motorRT(4, 5, 2, 0, 0);
 Motor motorRE(6, 7, 2, 0, 0);
@@ -83,7 +84,6 @@ void loop()
 		Serial.println(magRS.trueAngle);
 	}
 }
-
 
 // -------------------------------------------------------------------------------------
 

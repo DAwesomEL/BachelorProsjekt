@@ -146,6 +146,8 @@ void MagI2CUnit::checkMagnetPresence()
 
 bool MagI2CUnit::checkMagnetPresence(bool onlyOnce)
 {
+	if (onlyOnce)
+	{
 		magnetStatus = 0; //reset reading
 
 		Wire.beginTransmission(0x36); //connect to the sensor
@@ -155,15 +157,19 @@ bool MagI2CUnit::checkMagnetPresence(bool onlyOnce)
 
 		while (Wire.available() == 0); //wait until it becomes available 
 		magnetStatus = Wire.read(); //Reading the data after the request
-	//Status register output: 0 0 MD ML MH 0 0 0  
-	//MH: Too strong magnet - 100111 - DEC: 39 
-	//ML: Too weak magnet - 10111 - DEC: 23     
-	//MD: OK magnet - 110111 - DEC: 55
+		//Status register output: 0 0 MD ML MH 0 0 0  
+		//MH: Too strong magnet - 100111 - DEC: 39 
+		//ML: Too weak magnet - 10111 - DEC: 23     
+		//MD: OK magnet - 110111 - DEC: 55
 
 		if (magnetStatus == 55)
 			return true;
 		else
 			return false;
+	}
+	else {
+		checkMagnetPresence();
+	}
 }
 
 
