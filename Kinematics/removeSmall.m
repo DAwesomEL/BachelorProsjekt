@@ -1,5 +1,5 @@
-function [Tnew] = killSmall(T)
-%KILLSMALL Summary of this function goes here
+function [Tnew] = removeSmall(T)
+%REMOVESMALL Summary of this function goes here
 %   Detailed explanation goes here
 Tnew = T;
 Tnew(1,2) = 0;
