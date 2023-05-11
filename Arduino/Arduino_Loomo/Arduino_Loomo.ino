@@ -22,30 +22,24 @@ void loop() {
 if (Serial.available() > 0) { // Check if there's data available on the serial port
     char command = Serial.read(); // Read the incoming byte
     switch (command) {
-          case 'F': // Forward
-            analogWrite(PWM1, 0);
-            analogWrite(PWM2, 255);
+          case 'W': // Start Wave function
+            // Wave
             break;
-          case 'B': // Backward
-            analogWrite(PWM1, 255);
-            analogWrite(PWM2, 0);
+          case 'H': // Go to home position
+            // Home
             break;
-          case 'S': // Stop
-
-            digitalWrite(ledPin, LOW); // Turn the LED off
-            analogWrite(PWM1, 0);
-            analogWrite(PWM2, 0);
-            break;
-          case 'G': // Turn on led
-            digitalWrite(ledPin, HIGH); // Turn the LED on
-            
+          case 'S': // Stop wave function
+            // Stop
             break;
         } 
   } 
 }
 
   
-  
+/* 
 
+
+
+*/
 
 
