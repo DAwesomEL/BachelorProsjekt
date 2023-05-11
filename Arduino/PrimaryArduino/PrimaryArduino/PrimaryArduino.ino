@@ -4,7 +4,7 @@
  Author:	dngmo
 */
 
-// the setup function runs once when you press reset or power the board
+
 #include "invensense_imu.h"
 #include "Wire.h"
 #include "arduino.h"
