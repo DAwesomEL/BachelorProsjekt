@@ -1,5 +1,4 @@
 #pragma once
-
 class MagI2CUnit {
 public: 
 	MagI2CUnit(int ID, int &deviceCounter);
@@ -17,3 +16,6 @@ public:
 };
 
 int I2CScanGeneral();
+
+
+
