@@ -39,12 +39,6 @@ int Motor::PID(double ang, double desAng)
 	// Integrator
 	summedError += (desAng - ang);
 	I = abs(summedError);
-	if (summedError > 0) {
-		dir = 1;
-	}
-	else {
-		dir = 0;
-	}
 
 	// Derivator
 	D = Kd * (ang - lastAng) / (time - lastTime);

@@ -50,22 +50,34 @@ int Motor::PID(double ang, double desAng, long int time)
 		error = error + 360;
 
 	float absError = abs(error);
+
+
 	// Proportional
 	P = Kp * absError;
+
+	// Integrator
+	summedError += (desAng - ang);
+	I = summedError;
+
+	// Derivator
+	D = Kd * (ang - lastAng) / (time - lastTime);
+
 	//PWM
-	PWM = (int)round(abs(P + I + D));
-	;
-	if (PWM >= 255)
-		PWM = 255;
+	PWM = (int)round(P + I + D);
+	
 
+	
 
-	if (error < 0) {
+	if (PWM < 0) {
 		dir = false;
 	}
 	else {
 		dir = true;
 	}
-
+	PWM = abs(PWM);
+	
+	if (PWM >= 255)
+		PWM = 255;
 	//remember last values
 	lastAng = ang;
 	lastTime = time;

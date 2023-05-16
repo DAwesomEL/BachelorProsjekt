@@ -1,3 +1,3 @@
 #pragma once
 
-void serialComm();
+void serialComm(Motor &motor);
