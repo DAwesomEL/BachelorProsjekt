@@ -2,6 +2,7 @@
 class Motor
 { 
 public:
+	Motor() = delete;
 	Motor(int cwNew, int ccwNew, float KpNew, float KiNew, float KdNew);
 	~Motor() = default;
 
