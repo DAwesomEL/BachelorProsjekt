@@ -1,3 +1,4 @@
 #pragma once
+#include "motor.h"
 
-void serialComm(Motor &motor);
+int serialComm();

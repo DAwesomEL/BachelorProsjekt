@@ -1,18 +1,20 @@
 #include "serial.h"
 #include "motor.h"
 #include "arduino.h"
-void serialComm(Motor &motor)
+int serialComm()
 {
+	int val = 1000;
+	String data;
 	// Send the data to the secondary Arduino over TX/RX
-	Serial1.print("Todays number: ");
-	Serial1.println("69");
+	Serial.print("Todays number: ");
+	Serial.println("69");
 
 	// Read data from the secondary Arduino over TX/RX
-	if (Serial1.available() > 0) {
-		String data = Serial1.readStringUntil('\n');
-		Serial.println("Received data from secondary Arduino: " + data);
+	if (Serial.available() > 0) {
+		data = Serial.readStringUntil('\n');
 	}
-	else { Serial.println("NOTHING REALLY?"); }
-	Serial.print("BTW, motorRS' Kp value is: ");
-	Serial.println(motor.Kp);
+	if (val < -360 || val > 360) {
+		int val = data.toInt();
+	}
+	return val;
 }

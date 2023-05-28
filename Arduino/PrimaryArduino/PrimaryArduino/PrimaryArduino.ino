@@ -5,6 +5,7 @@
 */
 
 
+#include <SPI.h>
 #include "invensense_imu.h"
 #include "Wire.h"
 #include "arduino.h"
@@ -67,9 +68,8 @@ void loop()
 	dt = time - lastTime;
 	lastTime = time;
 	if (time % 100 == 0) {
-		//Serial.write("");
 		magRS.readAngle();
-		motorRS.PID(magRS.trueAngle, 200, time);
+		motorRS.PID(magRS.trueAngle, serialComm(), time);
 		motorRS.drive(magRS.checkMagnetPresence(true));
 	}
 
