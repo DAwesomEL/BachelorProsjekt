@@ -71,10 +71,12 @@ void loop()
 		magRS.readAngle();
 		motorRS.PID(magRS.trueAngle, serialComm(), time);
 		motorRS.drive(magRS.checkMagnetPresence(true));
+		analogWrite(4, 150);
+		analogWrite(5, 0);
 	}
 
-	if (time % 1000 == 0) { // 134 av 600 p� 6007 ms //60 av 60 p� 5989 ms // 118 av 120 p� 5989 ms // 1890 av 2000 p� 95989 ms // 960 av 960 p� 95989
-		// uten noen annen stress p� systemet. Ikke send serial mer enn 10 ganger i sekundet.
+	if (time % 1000 == 0) { // 134 av 600 p� 100/s //60 av 60 p� 10/s // 118 av 120 p� 50/s // 1890 av 2000 p� 50/s // 960 av 960 p� 10/s
+		// Test kjørt uten noen annen stress p� systemet. Ikke send serial mer enn 10 ganger i sekundet.
 
 		Serial.print("PWM: ");
 		Serial.println(motorRS.PWM);

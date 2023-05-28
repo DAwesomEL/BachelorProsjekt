@@ -7,6 +7,8 @@ Motor::Motor(int cwNew, int ccwNew, float KpNew, float KiNew, float KdNew)
 	Kp = KpNew;
 	Ki = KiNew;
 	Kd = KdNew;
+	pinMode(cw, OUTPUT);
+	pinMode(ccw, OUTPUT);
 
 	summedError = 0;
 	lastTime = 0;
@@ -49,11 +51,10 @@ int Motor::PID(double ang, double desAng, long int time)
 	else if (error < -180)
 		error = error + 360;
 
-	float absError = abs(error);
 
 
 	// Proportional
-	P = Kp * absError;
+	P = Kp * error;
 
 	// Integrator
 	summedError += (desAng - ang);
